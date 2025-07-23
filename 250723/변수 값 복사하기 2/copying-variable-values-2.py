@@ -4,5 +4,4 @@ c = 7
 
 a = b = c
 
-print(a)
-print(a)
+print(a, b, c)
