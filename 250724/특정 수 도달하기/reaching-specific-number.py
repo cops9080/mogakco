@@ -1,6 +1,5 @@
 arr = list(map(int, input().split()))
 
-n = len(arr)
 sum_val = 0
 cnt = 0
 
@@ -11,4 +10,4 @@ for elem in arr:
     else:
         break
 
-print(f"{sum_val} {sum_val/cnt}")
+print(f"{sum_val} {sum_val/cnt:.1f}")
