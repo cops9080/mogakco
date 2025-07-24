@@ -5,7 +5,7 @@ sum_val = 0
 cnt = 0
 
 for elem in arr:
-    if elem <= 250:
+    if elem < 250:
         sum_val += elem
         cnt += 1
     else:
