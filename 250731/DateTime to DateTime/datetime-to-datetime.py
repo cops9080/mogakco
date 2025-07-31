@@ -5,6 +5,9 @@ M = 11
 
 elapsed_minute = 0
 while True:
+    if a == 11 and b==11 and c==11:
+        print(0)
+        break
     if a == 11 and (c < 11 or b < 11):
         print(-1)
         break
