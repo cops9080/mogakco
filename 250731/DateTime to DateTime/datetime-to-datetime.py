@@ -3,10 +3,9 @@ D = 11
 H = 11
 M = 11
 
-
 elapsed_minute = 0
 while True:
-    if c < 11 or b < 11 or a < 11:
+    if a == 11 and (c < 11 or b < 11):
         print(-1)
         break
     if D == a and H == b and M == c:
@@ -19,6 +18,6 @@ while True:
         M = 0
     M += 1
     elapsed_minute += 1
-    
+
 if elapsed_minute != 0:
     print(elapsed_minute)
