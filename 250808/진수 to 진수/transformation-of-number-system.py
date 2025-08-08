@@ -9,12 +9,12 @@ for i in range(len(binary)):
 
 digits = []
 while True:
-    if num < 2:
+    if num < b:
         digits.append(num)
         break
     
-    digits.append(num%2)
-    num = num // 2
+    digits.append(num%b)
+    num = num // b
 
 for elem in digits[::-1]:
     print(elem, end='')
