@@ -1,54 +1,37 @@
-nA, mB = map(int, input().split())
+n, m = map(int, input().split())
 
-dA = []
-tA = []
-for _ in range(nA):
-    direction, time = input().split()
-    dA.append(direction)
-    tA.append(int(time))
+move_A = [tuple(input().split()) for _ in range(n)]
+move_B = [tuple(input().split()) for _ in range(m)]
 
-dB = []
-tB = []
-for _ in range(mB):
-    direction, time = input().split()
-    dB.append(direction)
-    tB.append(int(time))
+dir_a = [0] * 20
+dir_b = [0] * 20
 
-# Please write your code here.
-dir_a = [0] * nA
-dir_b = [0] * mB
+# move A
+pos = 0
+time_idx = 0
+for d, t in move_A:
+    t = int(t)
+    step = -1 if d == "L" else 1
+    for _ in range(t):
+        pos += step
+        dir_a[time_idx] = pos
+        time_idx += 1
 
-# A move
-for i in range(0, nA):
-    if i == 0:
-        if dA[i] == "L":
-            dir_a[i] = -tA[i]
-        elif dA[i] == "R":
-            dir_a[i] = tA[i]
-    else:
-        if dA[i] == "L":
-            dir_a[i] = dir_a[i-1] - tA[i]
-        elif dA[i] == "R":
-            dir_a[i] = dir_a[i-1] + tA[i]
+# move B
+pos = 0
+time_idx = 0
+for d, t in move_B:
+    t = int(t)
+    step = -1 if d == "L" else 1
+    for _ in range(t):
+        pos += step
+        dir_b[time_idx] = pos
+        time_idx += 1
 
-# B move
-for i in range(0, mB):
-    if i == 0:
-        if dB[i] == "L":
-            dir_b[i] = -tB[i]
-        elif dB[i] == "R":
-            dir_b[i] = tB[i]
-    else:
-        if dB[i] == "L":
-            dir_b[i] = dir_b[i-1] - tB[i]
-        elif dB[i] == "R":
-            dir_b[i] = dir_b[i-1] + tB[i]
+meet_time = -1
+for i in range(min(len(dir_a), len(dir_b))):
+    if dir_a[i] == dir_b[i]:
+        meet_time = i + 1
+        break
 
-cnt = 0
-for i in range(0, len(dir_a)):
-    for j in range(0, len(dir_b)):
-        cnt += 1
-        if dir_a[i] == dir_b[j]:
-            break
-
-print(cnt)
+print(meet_time)
