@@ -1,37 +1,30 @@
-n, m = map(int, input().split())
+MAX_T = 1000000
 
-move_A = [tuple(input().split()) for _ in range(n)]
-move_B = [tuple(input().split()) for _ in range(m)]
+# 변수 선언 및 입력
+n, m = tuple(map(int, input().split()))
+pos_a, pos_b = [0] * (MAX_T + 1), [0] * (MAX_T + 1)
 
-dir_a = [0] * 20
-dir_b = [0] * 20
+# A가 매 초마다 서있는 위치를 기록
+time_a = 1
+for _ in range(n):
+    d, t = tuple(input().split())
+    for _ in range(int(t)):
+        pos_a[time_a] = pos_a[time_a - 1] + (1 if d == 'R' else -1)
+        time_a += 1
 
-# move A
-pos = 0
-time_idx = 0
-for d, t in move_A:
-    t = int(t)
-    step = -1 if d == "L" else 1
-    for _ in range(t):
-        pos += step
-        dir_a[time_idx] = pos
-        time_idx += 1
+# B가 매 초마다 서있는 위치를 기록
+time_b = 1
+for _ in range(m):
+    d, t = tuple(input().split())
+    for _ in range(int(t)):
+        pos_b[time_b] = pos_b[time_b - 1] + (1 if d == 'R' else -1)
+        time_b += 1
 
-# move B
-pos = 0
-time_idx = 0
-for d, t in move_B:
-    t = int(t)
-    step = -1 if d == "L" else 1
-    for _ in range(t):
-        pos += step
-        dir_b[time_idx] = pos
-        time_idx += 1
-
-meet_time = -1
-for i in range(min(len(dir_a), len(dir_b))):
-    if dir_a[i] == dir_b[i]:
-        meet_time = i + 1
+# 최초로 만나는 시간을 구합니다.
+ans = -1
+for i in range(1, time_a):
+    if pos_a[i] == pos_b[i]:
+        ans = i
         break
-
-print(meet_time)
+        
+print(ans)
