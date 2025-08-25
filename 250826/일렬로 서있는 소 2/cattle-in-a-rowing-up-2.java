@@ -12,7 +12,7 @@ public class Main {
         for (int i=0; i<n; i++) {
             for (int j=0; j<n; j++) {
                 for (int k=0; k<n; k++) {
-                    if (((i < j) && (j < k)) && ((arr[i] < arr[j]) && (arr[j] < arr[k]))) {
+                    if (((i < j) && (j < k)) && ((arr[i] <= arr[j]) && (arr[j] <= arr[k]))) {
                         pair++;
                     }
                 }
