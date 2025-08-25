@@ -28,6 +28,11 @@ public class Main {
                 }
             }
         }
-        System.out.print(successCnt);
+
+        if (grid[0][0] == grid[R-1][C-1]) {
+            System.out.print(0);
+        } else {
+            System.out.print(successCnt);
+        }
     }
 }
