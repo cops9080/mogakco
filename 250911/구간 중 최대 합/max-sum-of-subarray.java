@@ -10,7 +10,7 @@ public class Main {
         
         int total = 0;
         int maxTotal = 0;
-        for (int i = 0; i < n-k; i++) {
+        for (int i = 0; i <= n-k; i++) {
             for (int j = i; j < i+k; j++) {
                 total += arr[j];
             }
