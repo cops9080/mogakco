@@ -5,7 +5,7 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
 
-        char[] position = new char[100];
+        char[] position = new char[10000];
 
         for (int i = 0; i < n; i++) {
             int idx = sc.nextInt();
@@ -14,7 +14,7 @@ public class Main {
 
         int score = 0;
         int maxScore = 0;
-        for (int i = 0; i < 100-k; i++) {
+        for (int i = 0; i < 10000-k; i++) {
             for (int j = i; j < i+k+1; j++) {
                 if (position[j] == 'G') {
                     score += 1;
