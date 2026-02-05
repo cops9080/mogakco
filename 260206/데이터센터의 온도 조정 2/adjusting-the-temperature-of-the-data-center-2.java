@@ -4,7 +4,7 @@ public class Main {
     public static int workload(int temp, int ta, int tb, int c, int g, int h) {
         if (temp < ta) {
             return c;
-        } else if (temp >= ta && temp < tb) {
+        } else if (temp <= tb) {
                return g;
         } else {
             return h;
