@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 # N: 보석의 개수, M: 배낭의 최대 용량
 N, M = map(int, input().split())
 
